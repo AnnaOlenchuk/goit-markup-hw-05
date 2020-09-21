@@ -762,8 +762,9 @@ width: calc((100% - 90px) / 4);
 .portfolio-thumb::before,
 .overlay-text {
   position: absolute;
-  top: 100%;
+  top: 100%; 
   left: 0;
+  
 
   display: block;
 
@@ -793,8 +794,8 @@ width: calc((100% - 90px) / 4);
 
 .portfolio-link:hover > .portfolio-thumb::before,
 .portfolio-link:focus > .portfolio-thumb::before,
-.portfolio-link:hover > .overlay-text,
-.portfolio-link:hover > .overlay-text {
+.portfolio-link:hover .overlay-text,
+.portfolio-link:focus .overlay-text {
   opacity: 0.9;
 
   transform: translateY(-100%);
