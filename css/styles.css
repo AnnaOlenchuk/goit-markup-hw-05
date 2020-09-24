@@ -91,6 +91,11 @@
 
   text-decoration: none;
   text-align: center;
+
+  border-style: none;
+  border-color: none;
+  outline: none;
+  border-image: none;
 }
 
 .logo {
