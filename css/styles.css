@@ -16,10 +16,13 @@
   --box-shadow-extra: rgba(0, 0, 0, 0.16);
   --box-shadow-plus: rgba(0, 0, 0, 0.1); 
   --box-shadow-light: rgba(0, 0, 0, 0.08);
+  --box-shadow-form-button:rgba(0, 0, 0, 0.15);
   --primary-icon-color: #AFB1B8;
   --footer-social-background: rgba(255, 255, 255, 0.1);
   --services-overlay-color: rgba(47, 48, 58, 0.8);
   --backdrop-color: rgba(0, 0, 0, 0.2);
+  --form-outline-color: rgba(33, 33, 33, 0.2);
+  --footer-form-outline: rgba(255, 255, 255, 0.3); 
 }
 
 .page {
@@ -210,6 +213,10 @@
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
 .site-nav__link.current {
@@ -249,6 +256,10 @@
   padding-bottom: 15px;
 
   display: block;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts__icon {
@@ -260,16 +271,16 @@
   justify-content: center;
 
   fill: var(--primary-text-color);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ЗАПОМНИТЬ!!!! ХОВЕР ссылка + иконка*/
 .contacts__link:hover > .contacts__icon,
 .contacts__link:focus > .contacts__icon {
   fill: var(--accent-color);
-
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Footer */
@@ -302,13 +313,21 @@
 .address__item.link {
   font-style: normal;
   color: var(--primary-text-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 } 
 
-.footer__unit:not(:last-child) {
+.footer__unit:nth-child(1) {
   margin-right: 70px;
 }
 
-.social-title {
+.footer__unit:nth-child(2) {
+  margin-right: 93px;
+}
+
+.footer__title {
   margin-top: 0;
   margin-bottom: 20px;
 
@@ -346,6 +365,79 @@
 
   fill: var(--white-color);
 }
+
+.footer__form-field {
+ display: flex;
+
+ margin-top: 20px;
+}
+
+.footer__form-input {
+  width: 358px;
+  height: 50px;
+  margin-right: 12px;
+  padding: 15px 16px;
+
+  border: 1px solid var(--footer-form-outline);
+  border-radius: 4px;
+
+  background-color: var(--footer-color);
+}
+
+.footer__button {
+  position: relative;
+  width: 200px;
+  height: 50px;
+
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px var( --box-shadow-form-button);
+  border-radius: 4px; 
+
+  border-style: none;
+}
+
+.footer__button:focus,
+.footer__button:active {
+  border-style: none;
+}
+
+.footer__button-container {
+ position: absolute;
+ top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  height: 24px;
+  margin: 0;
+
+}
+
+.footer__button-text {
+  margin: 0 10px 0 0;
+
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+}
+
+.footer__button-icon {
+  /* position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-20%, -50%); */
+  display: block;
+  
+  width: 24px;
+  height: 24px;
+
+  fill: var(--white-color);
+}
+
 
 /* Hero */
 .hero {
@@ -612,7 +704,7 @@ width: calc((100% - 90px) / 4);
 .clients__link {
   border: 1px solid var(--primary-icon-color);
 
-  transition-property: border-color, fill;
+  transition-property: border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -636,6 +728,10 @@ width: calc((100% - 90px) / 4);
   justify-content: center;
 
   fill: var(--primary-icon-color);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio */
@@ -668,7 +764,7 @@ width: calc((100% - 90px) / 4);
   justify-content: center;
 }
 
-.filter__item {
+.filter__button {
   background-color: var(--secondary-background-color);
   color: var(--title-text-color);
   border-style: none;
@@ -676,6 +772,9 @@ width: calc((100% - 90px) / 4);
   border-color: none;
   outline: none;
   border-image: none;
+
+  padding: 6px 22px;
+  /* margin-right: 8px; */
   
   font-family: inherit;
   font-weight: 500;
@@ -684,7 +783,7 @@ width: calc((100% - 90px) / 4);
   text-align: center;
   letter-spacing: 0.03em;
 
-  transition-property: background-color;
+  transition-property: background-color, color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -693,12 +792,13 @@ width: calc((100% - 90px) / 4);
   margin-right: 8px;
 }
 
-.filter__item:hover,
-.filter__item:focus,
-.filter__item:active {
+.filter__button:hover,
+.filter__button:focus,
+.filter__button:active {
   background-color: var(--accent-color);
   border: none;
   outline: none;
+  color: var(--white-color);
 
   box-shadow: 
   0px 3px 1px var(--box-shadow-plus); 
@@ -841,6 +941,13 @@ margin: 0 0 4px;
   min-height: 581px;
   background-color: var(--white-color);
 
+  padding: 40px;
+  box-shadow: 0px 1px 3px var(--box-shadow-primary), 
+  0px 1px 1px var(--box-shadow-secondary), 
+  0px 2px 1px var(--box-shadow-additional);
+
+  border-radius: 4px;
+
   transform: translate(-50%, -50%) scale(1);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -868,4 +975,145 @@ margin: 0 0 4px;
 
   width: 11px;
   height: 11px;
+
+  transition-property: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* WHY THIS CRAP DOESN'T WORK??? */
+.modal__button-icon:hover,
+.modal__button-icon:focus {
+  fill: var(--accent-color);
+}
+/* Form */
+.form {
+
+}
+
+.modal__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: var(--title-text-color);
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+
+  /* outline: 1px solid var(--form-outline-color); */
+  box-sizing: border-box;
+  
+  margin-bottom: 10px;
+}
+
+.form__field-policy {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+}
+
+.form__field-comment {
+  margin-bottom: 20px;
+}
+
+.form__field-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 40px;
+}
+
+.form__input,
+.form__comment {
+  border-radius: 4px;
+  border: 1px solid var(--form-outline-color);
+}
+
+.form__input {
+  width: 100%;
+  padding: 14px;
+  
+}
+
+.form__input::placeholder {
+  color: var(--form-outline-color);
+}
+
+.form__label {
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.16;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  color: var(--primary-text-color);
+}
+
+.form__label-policy {
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+.form__comment {
+  resize: none;
+  padding: 12px 16px;
+
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: var(--form-outline-color);
+}
+
+.form__field-checkbox {
+  margin-right: 8.4px;
+}
+
+.form__link {
+  color: var(--accent-color);
+}
+
+.form__link:hover,
+.form__link:focus,
+.form__link:visited {
+  color: var(--accent-color);
+}
+
+.form__button {
+  width: 200px;
+  height: 50px;
+
+  border-style: none;
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  color: var(--white-color);
+
+  background-color: var(--accent-color);
+  
+  box-shadow: 0px 4px 4px var(--box-shadow-form-button);
+}
+
+.form__button:hover,
+.form__button:focus,
+.form__button:active {
+  border-style: none;
+  outline: none;
+  
+  box-shadow: 
+  0px 1px 3px var(--box-shadow-primary), 
+  0px 1px 1px var(--box-shadow-secondary), 
+  0px 2px 1px var(--box-shadow-additional);
 }
